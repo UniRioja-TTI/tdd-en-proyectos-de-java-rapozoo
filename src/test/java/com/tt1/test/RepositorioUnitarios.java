@@ -13,7 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import Interfaces.IRepositorio;
-import mock.DBStubPrueba;
+import mock.DBFake;
 
 class RepositorioUnitarios {
 	
@@ -29,16 +29,11 @@ class RepositorioUnitarios {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		r = new Repositorio(new DBStubPrueba());
+		r = new Repositorio(new DBFake());
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
-	}
-
-	@Test
-	void test() {
-		fail("Not yet implemented");
 	}
 	
 	@Test

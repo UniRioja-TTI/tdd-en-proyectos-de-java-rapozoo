@@ -59,4 +59,13 @@ public class ToDo implements Serializable {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	@Override
+    public String toString() {
+        return "[id=" + id + 
+               ", nombre=" + nombre + 
+               ", descripcion=" + descripcion + 
+               ", completado=" + completado + 
+               ", fecha=" + fecha + "]";
+    }
 }

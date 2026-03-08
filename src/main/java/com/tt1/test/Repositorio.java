@@ -13,21 +13,25 @@ public class Repositorio implements IRepositorio {
         this.db = db;
     }
 	public ToDo encontrarTarea(ToDo tarea) {
-		throw  new  UnsupportedOperationException("Clase  aún  no  implementada.");
+		return db.readTarea(tarea);
 	}
 	public void marcarComoCompletada(ToDo tarea) {
-		throw  new  UnsupportedOperationException("Clase  aún  no  implementada.");
+		ToDo t = encontrarTarea(tarea);
+		if(t != null) {
+			t.setCompletado(true);
+			db.updateTarea(t);
+		}
 	}
 	public void guardarTarea(ToDo tarea) {
-		throw  new  UnsupportedOperationException("Clase  aún  no  implementada.");
+		db.createTarea(tarea);
 	}
 	public void guardarEmail(String email) {
-		throw  new  UnsupportedOperationException("Clase  aún  no  implementada.");
+		db.createEmail(email);
 	}
 	public List<ToDo> obtenerTodasLasTareas() {
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+		return db.getAllTareas();
     }
     public Set<String> obtenerTodosLosEmails() {
-        throw new UnsupportedOperationException("Clase aún no implementada.");
+        return db.getAllEmails();
     }
 }

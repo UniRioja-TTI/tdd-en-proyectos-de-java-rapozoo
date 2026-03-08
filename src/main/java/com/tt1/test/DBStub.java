@@ -1,5 +1,6 @@
 package com.tt1.test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -12,30 +13,47 @@ public class DBStub implements IDB{
 	private Map<Integer, ToDo> listaToDo = new HashMap<>();
 	private Set<String> agendaEmails = new HashSet<>();// Importa la unicidad de los objetos y no importa el orden.
 	public void createTarea(ToDo o) {
-		throw  new  UnsupportedOperationException("Clase  aún  no  implementada.");
+		if(!listaToDo.containsKey(o.getId())) {
+			listaToDo.put(o.getId(), o);
+		}
 	}
 	public ToDo readTarea(ToDo o) {
-		throw  new  UnsupportedOperationException("Clase  aún  no  implementada.");
+		ToDo tarea=null;
+		if(listaToDo.containsKey(o.getId())) {
+			tarea = listaToDo.get(o.getId());
+		}
+		return tarea;
 	}
 	public void updateTarea(ToDo o) {
-		throw  new  UnsupportedOperationException("Clase  aún  no  implementada.");
+		if(listaToDo.containsKey(o.getId())) {
+			listaToDo.remove(o.getId());
+			listaToDo.put(o.getId(), o);
+		}
 	}
 	public void removeTarea(ToDo o) {
-		throw  new  UnsupportedOperationException("Clase  aún  no  implementada.");
+		if(listaToDo.containsKey(o.getId())) {
+			listaToDo.remove(o.getId());
+		}
 	}
 	public List<ToDo> getAllTareas() {
-		throw  new  UnsupportedOperationException("Clase  aún  no  implementada.");
+		return new ArrayList<>(listaToDo.values());
 	}
 	public void createEmail(String o) {
-		throw  new  UnsupportedOperationException("Clase  aún  no  implementada.");
+		agendaEmails.add(o);
 	}
 	public String readEmail(String o) {
-		throw  new  UnsupportedOperationException("Clase  aún  no  implementada.");
+		String email = null;
+		if(agendaEmails.contains(o)) {
+			email = o;
+		}
+		return email;
 	}
 	public void removeEmail(String o) {
-		throw  new  UnsupportedOperationException("Clase  aún  no  implementada.");
+		if(agendaEmails.contains(o)) {
+			agendaEmails.remove(o);
+		}
 	}
 	public Set<String> getAllEmails() {
-		throw  new  UnsupportedOperationException("Clase  aún  no  implementada.");
+		return agendaEmails;
 	}
 }

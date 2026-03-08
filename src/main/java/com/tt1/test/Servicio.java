@@ -17,20 +17,45 @@ public class Servicio implements IServicio{
         this.mailer = mailer;
     }
 	public ToDo crearTarea(String nombre, Date fechaLimite) {
-		throw  new  UnsupportedOperationException("Clase  aún  no  implementada.");
+		ToDo tarea = new ToDo();
+		tarea.setNombre(nombre);
+		tarea.setFecha(fechaLimite);
+		int id = repositorio.obtenerTodasLasTareas().stream().mapToInt(ToDo::getId).max().orElse(0) + 1;		
+		tarea.setId(id);
+		tarea.setDescripcion("");
+		tarea.setCompletado(false);
+		repositorio.guardarTarea(tarea);
+		comprobarYMandarCorreo();
+		return tarea;
 	}
 	public boolean agregarDireccion(String email) {
-		throw  new  UnsupportedOperationException("Clase  aún  no  implementada.");
+		repositorio.guardarEmail(email);
+		comprobarYMandarCorreo();
+		return repositorio.obtenerTodosLosEmails().contains(email);
 	}
 	public void marcarCompletada(ToDo tarea) {
-		throw  new  UnsupportedOperationException("Clase  aún  no  implementada.");
+		repositorio.marcarComoCompletada(tarea);
+		comprobarYMandarCorreo();
 	}
 	public List<ToDo> consultarPendientes(){
-		throw  new  UnsupportedOperationException("Clase  aún  no  implementada.");
+		comprobarYMandarCorreo();
+		return repositorio.obtenerTodasLasTareas().stream().filter(t -> !t.isCompletado()).toList();
 	}
 	// Las operaciones comprobarán si hay ToDos sin completar cuya fecha límite haya pasado y enviar un correo a toda la agenda.
 	// Devuelve los correos mandados.
 	protected Set<String> comprobarYMandarCorreo() {
-		throw  new  UnsupportedOperationException("Clase  aún  no  implementada.");
+		List<ToDo> tareasPendientes = repositorio.obtenerTodasLasTareas().stream().filter(t -> !t.isCompletado()).toList();
+		List<ToDo> tareas = tareasPendientes.stream().filter(t -> t.getFecha().before(new Date(System.currentTimeMillis()))).toList();
+		if(tareas.isEmpty()) {
+			return null;
+		}
+		
+		Set<String> correos = repositorio.obtenerTodosLosEmails();
+		for (String correo : correos) {
+			for(ToDo tarea : tareas) {
+				mailer.mandarCorreo(correo, tarea.toString());
+			}
+		}
+		return correos;
 	}
 }

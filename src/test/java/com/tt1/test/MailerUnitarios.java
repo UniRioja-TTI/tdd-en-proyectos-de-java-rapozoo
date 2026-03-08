@@ -44,7 +44,7 @@ class MailerUnitarios {
 	
 	@Test
 	void testMailerEmptyDireccion() {
-		boolean mandado = ms.mandarCorreo("", "Silencio. No hay banda.");
+		boolean mandado = ms.mandarCorreo(" ", "Silencio. No hay banda.");
 		assertTrue(!mandado, "Se ha mandado el correo sin tener la dirección.");
 	}
 }
