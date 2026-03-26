@@ -4,8 +4,14 @@ import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Clase principal que ejecuta el programa.
+ */
 public class App{
-	// Crear objeto Servicio
+	/**
+	 * Se crea un objeto Servicio. 
+	 * @param args Argumentos del main
+	 */
 	public static void main(String args[]) {
         Servicio s = new Servicio(new Repositorio(new DBStub()), new MailerStub());
 		

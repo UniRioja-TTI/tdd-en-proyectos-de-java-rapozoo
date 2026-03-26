@@ -3,6 +3,9 @@ package com.tt1.test;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * Una tarea. Contiene identificador, nombre, descripción, fecha y si la tarea está completada o no.
+ */
 public class ToDo implements Serializable {
 	/**
 	 * 
@@ -18,49 +21,87 @@ public class ToDo implements Serializable {
 	}
 
 	
+	/**
+	 * Obtine el nombre de la tarea.
+	 * @return El nombre de la tarea.
+	 */
 	public String getNombre() {
 		return nombre;
 	}
 
+	/**
+	 * Añade el nombre de la tarea al objeto.
+	 * @param nombre El nombre de la tarea.
+	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
-	}
+	/**
+     * Obtiene la descripción de la tarea.
+     * @return La descripción de la tarea.
+     */
+    public String getDescripcion() {
+        return descripcion;
+    }
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
+    /**
+     * Añade la descripción de la tarea al objeto.
+     * @param descripcion La descripción de la tarea.
+     */
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
-	public Date getFecha() {
-		return fecha;
-	}
+    /**
+     * Obtiene la fecha de la tarea.
+     * @return La fecha de la tarea.
+     */
+    public Date getFecha() {
+        return fecha;
+    }
 
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
-	}
+    /**
+     * Añade la fecha de la tarea al objeto.
+     * @param fecha La fecha de la tarea.
+     */
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
 
-	public boolean isCompletado() {
-		return completado;
-	}
+    /**
+     * Obtiene si la tarea está completada o no.
+     * @return true si la tarea está completada, false si no lo está.
+     */
+    public boolean isCompletado() {
+        return completado;
+    }
 
-	public void setCompletado(boolean completado) {
-		this.completado = completado;
-	}
+    /**
+     * Añade el estado de completado de la tarea al objeto.
+     * @param completado El estado de completado de la tarea.
+     */
+    public void setCompletado(boolean completado) {
+        this.completado = completado;
+    }
 
+    /**
+     * Obtiene el identificador de la tarea.
+     * @return El identificador de la tarea.
+     */
+    public int getId() {
+        return id;
+    }
 
-	public int getId() {
-		return id;
-	}
-
-
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	@Override
+    /**
+     * Añade el identificador de la tarea al objeto.
+     * @param id El identificador de la tarea.
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    @Override
     public String toString() {
         return "[id=" + id + 
                ", nombre=" + nombre + 
