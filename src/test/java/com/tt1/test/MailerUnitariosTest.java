@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 import Interfaces.IMailer;
 
-class MailerUnitarios {
+class MailerUnitariosTest {
 
 	private IMailer ms;
 	@BeforeAll

@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 
 import Interfaces.IRepositorio;
 
-class RepositorioIntegracion {
+class RepositorioIntegracionTest {
 
 	private IRepositorio r;
 	@BeforeAll
