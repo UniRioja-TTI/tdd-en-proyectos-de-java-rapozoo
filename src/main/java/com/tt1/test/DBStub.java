@@ -46,7 +46,7 @@ public class DBStub implements IDB{
 		if(agendaEmails.contains(o)) {
 			email = o;
 		}
-		return null;
+		return email;
 	}
 	public void removeEmail(String o) {
 		if(agendaEmails.contains(o)) {
