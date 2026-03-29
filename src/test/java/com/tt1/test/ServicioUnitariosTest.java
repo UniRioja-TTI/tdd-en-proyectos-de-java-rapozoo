@@ -11,12 +11,16 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import mock.RepositorioFake;
+import mock.MailerFake;
 
+import Interfaces.IRepositorio;
 import Interfaces.IServicio;
 
-class ServicioIntegracion {
+class ServicioUnitariosTest {
 
 	private IServicio s;
+
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 	}
@@ -27,7 +31,7 @@ class ServicioIntegracion {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		s = new Servicio(new Repositorio(new DBStub()), new MailerStub());
+		s = new Servicio(new RepositorioFake(), new MailerFake());
 	}
 
 	@AfterEach

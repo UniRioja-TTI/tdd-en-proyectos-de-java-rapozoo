@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 import Interfaces.IRepositorio;
 import mock.DBFake;
 
-class RepositorioUnitarios {
+class RepositorioUnitariosTest {
 	
 	private IRepositorio r;
 

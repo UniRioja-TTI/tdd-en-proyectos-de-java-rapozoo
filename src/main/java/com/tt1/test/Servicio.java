@@ -80,8 +80,7 @@ public class Servicio implements IServicio{
 		List<ToDo> tareas = tareasPendientes.stream().filter(t -> t.getFecha().before(new Date(System.currentTimeMillis()))).toList();
 		if(tareas.isEmpty()) {
 			return null;
-		}
-		
+		}	
 		Set<String> correos = repositorio.obtenerTodosLosEmails();
 		for (String correo : correos) {
 			for(ToDo tarea : tareas) {

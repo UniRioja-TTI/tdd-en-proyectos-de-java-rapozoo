@@ -22,13 +22,13 @@ public class RepositorioFake implements IRepositorio {
         tarea1.setNombre("Pasarme Silksong");
         tarea1.setDescripcion("Largo y difícil");
         tarea1.setCompletado(false);
-        tarea1.setFecha(new Date(System.currentTimeMillis()));
+        tarea1.setFecha(new Date(System.currentTimeMillis() - 20));
 
         tarea2.setId(2);
         tarea2.setNombre("Pasarme el TFG");
         tarea2.setDescripcion("Largo y difícil");
         tarea2.setCompletado(false);
-        tarea2.setFecha(new Date(System.currentTimeMillis()));
+        tarea2.setFecha(new Date(System.currentTimeMillis() - 20));
         lista2Tareas.add(tarea1);
         lista2Tareas.add(tarea2);
 	}

@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 
 import Interfaces.IDB;
 
-class DBUnitarios {
+class DBUnitariosTest {
 
 	private IDB db;
 	
